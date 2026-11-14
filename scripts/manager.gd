@@ -1,6 +1,6 @@
 extends Node
 
-var gameScene = preload("res://Scenes/game.tscn")
+var gameScene = preload("res://scenes/game.tscn")
 var fruitScene = preload("res://scenes/fruit.tscn")
 var platformScene = preload("res://scenes/trampoline.tscn")
 

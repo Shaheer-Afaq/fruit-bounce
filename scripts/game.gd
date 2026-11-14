@@ -48,7 +48,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 	update_labels()
 	body.queue_free()
-	summon_fruit()
+	summon_fruit.call_deferred()
 		
 func summon_fruit():
 	var midpoint := get_viewport_rect().size.x/2

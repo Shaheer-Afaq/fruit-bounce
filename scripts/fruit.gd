@@ -1,7 +1,6 @@
 extends RigidBody2D
 class_name fruit
 
-@onready var area_2d: Area2D = $Area2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
