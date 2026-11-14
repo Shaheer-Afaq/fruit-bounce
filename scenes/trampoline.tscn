@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://demyakqkcqe1m"]
+
+[ext_resource type="Script" uid="uid://clmopeftmqeha" path="res://scripts/trampoline.gd" id="1_2yctu"]
+[ext_resource type="Texture2D" uid="uid://cp186ttui25fn" path="res://assets/platform.png" id="2_nytqh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yctu"]
+size = Vector2(231.5, 20)
+
+[node name="Trampoline" type="CharacterBody2D" unique_id=1073220978]
+z_index = 6
+collision_mask = 2
+script = ExtResource("1_2yctu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1799356474]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_2yctu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=488901343]
+texture_filter = 1
+position = Vector2(0, 1.1920929e-07)
+scale = Vector2(5, 3.232)
+texture = ExtResource("2_nytqh")
+offset = Vector2(-2.58, 2.965)

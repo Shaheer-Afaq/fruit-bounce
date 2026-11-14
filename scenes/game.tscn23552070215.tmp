@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://wxw8dv5yf0jj"]
+
+[ext_resource type="Script" uid="uid://c2vu6xu5uc108" path="res://scripts/game.gd" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://ge8gh68dqsor" path="res://assets/bg.jpeg" id="3_lnu2h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx4kk"]
+size = Vector2(1189, 64)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bx4kk"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1im4o"]
+normal = Vector2(-1, 0)
+distance = -1157.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_25618"]
+normal = Vector2(0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_1im4o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q5a0l"]
+font = SubResource("SystemFont_1im4o")
+font_size = 70
+font_color = Color(0.028601361, 0.7391332, 0, 1)
+outline_size = 20
+outline_color = Color(0.072842635, 0.072842635, 0.072842635, 1)
+shadow_size = 50
+shadow_color = Color(0.023488348, 0.32985395, 0.10951092, 0.59607846)
+
+[node name="Game" type="Node2D" unique_id=1130835416]
+script = ExtResource("1_uwrxv")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1466420748]
+offset_right = 1155.0
+offset_bottom = 652.0
+texture = ExtResource("3_lnu2h")
+
+[node name="Timer" type="Timer" parent="." unique_id=1179892243]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1873225529]
+position = Vector2(500, 704)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1697786319]
+position = Vector2(83.5, -22)
+shape = SubResource("RectangleShape2D_bx4kk")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1468674641]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1453265364]
+position = Vector2(-2, 0)
+shape = SubResource("WorldBoundaryShape2D_bx4kk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2026773967]
+shape = SubResource("WorldBoundaryShape2D_1im4o")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1339979691]
+shape = SubResource("WorldBoundaryShape2D_25618")
+
+[node name="Label" type="Label" parent="." unique_id=1089950074]
+offset_left = 73.0
+offset_top = 36.0
+offset_right = 1085.0
+offset_bottom = 173.0
+text = "0"
+label_settings = SubResource("LabelSettings_q5a0l")
+
+[node name="Label2" type="Label" parent="." unique_id=46343949]
+offset_left = 73.0
+offset_top = 36.0
+offset_right = 1085.0
+offset_bottom = 173.0
+text = "0"
+label_settings = SubResource("LabelSettings_q5a0l")
+horizontal_alignment = 2
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

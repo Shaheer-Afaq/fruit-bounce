@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://wxw8dv5yf0jj"]
+
+[ext_resource type="Script" uid="uid://c2vu6xu5uc108" path="res://scripts/game.gd" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://ge8gh68dqsor" path="res://assets/bg.jpeg" id="3_lnu2h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx4kk"]
+size = Vector2(1189, 64)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bx4kk"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1im4o"]
+normal = Vector2(-1, 0)
+distance = -1157.0
+
+[node name="Game" type="Node2D" unique_id=1130835416]
+script = ExtResource("1_uwrxv")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1466420748]
+offset_right = 1155.0
+offset_bottom = 652.0
+texture = ExtResource("3_lnu2h")
+
+[node name="Timer" type="Timer" parent="." unique_id=1179892243]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1873225529]
+position = Vector2(500, 704)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1697786319]
+position = Vector2(83.5, -22)
+shape = SubResource("RectangleShape2D_bx4kk")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1468674641]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1453265364]
+position = Vector2(-2, 0)
+shape = SubResource("WorldBoundaryShape2D_bx4kk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2026773967]
+shape = SubResource("WorldBoundaryShape2D_1im4o")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
