@@ -1,4 +1,4 @@
-# Fruit Bouncer
+# Fruit Bounce
 
 This is a two-player game where two players control two platforms. Fruits fall from the sky and players have to prevent them from falling on their side. 
 
